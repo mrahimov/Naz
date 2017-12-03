@@ -42,7 +42,14 @@ public class MainFragment extends Fragment {
                 NextFragment nextFragment = new NextFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_xml, R.anim.pop_exit);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("text01", "someText");
+                nextFragment.setArguments(bundle);
+
                 fragmentTransaction.replace(R.id.fragment_container ,nextFragment);
+
                 fragmentTransaction.addToBackStack("next fragment");
                 fragmentTransaction.commit();
 
