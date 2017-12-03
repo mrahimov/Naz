@@ -42,7 +42,9 @@ public class MainFragment extends Fragment {
                 NextFragment nextFragment = new NextFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frag_container,nextFragment).commit();
+                fragmentTransaction.replace(R.id.fragment_container ,nextFragment);
+                fragmentTransaction.addToBackStack("next fragment");
+                fragmentTransaction.commit();
 
             }
         });
